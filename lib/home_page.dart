@@ -8,8 +8,9 @@ class HomePage extends StatelessWidget {
     int age = 22;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Demo App"),
+        title : const Text("Demo App"),
         centerTitle: true,
+        
       ),
       body: Center(
         child: Container(

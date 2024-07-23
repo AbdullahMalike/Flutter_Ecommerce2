@@ -11,6 +11,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   String name = "";
   bool buttonchanged = false;
+
   final _formkey = GlobalKey<FormState>();
 
   movetohome(BuildContext context) async {
@@ -129,7 +130,10 @@ class _LoginPageState extends State<LoginPage> {
                                       ),
                               ),
                             ),
-                          )
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
                         ],
                       ),
                     ),

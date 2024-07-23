@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       ),
       themeMode: ThemeMode.system,
       darkTheme: ThemeData(brightness: Brightness.dark),
-      initialRoute: "/", // or use "/"
+      initialRoute: MyRoutes.homeRoute, // or use "/"
       routes: {
         "/": (context) => LoginPage(),
         MyRoutes.homeRoute: (context) => HomePage(),

@@ -9,7 +9,10 @@ class HomePage extends StatelessWidget {
     int age = 25;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Ecommerce App"),
+        title: const Text(
+          "Catalog App",
+          style: TextStyle(color: Colors.black),
+        ),
         centerTitle: true,
       ),
       body: SafeArea(

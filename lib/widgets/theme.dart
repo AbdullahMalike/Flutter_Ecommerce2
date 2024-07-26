@@ -6,11 +6,11 @@ class MyTheme {
         useMaterial3: false,
         primarySwatch: Colors.deepPurple,
         fontFamily: GoogleFonts.lato().fontFamily,
-        appBarTheme: AppBarTheme(
-          color: Colors.white,
-          elevation: 0.0,
-          iconTheme: IconThemeData(color: Colors.black),
-        ),
+        appBarTheme: const AppBarTheme(
+            color: Colors.white,
+            elevation: 0.0,
+            iconTheme: IconThemeData(color: Colors.black),
+            titleTextStyle: TextStyle(color: Colors.black, fontSize: 20)),
       );
 
   static ThemeData darkTheme() => ThemeData(brightness: Brightness.dark);

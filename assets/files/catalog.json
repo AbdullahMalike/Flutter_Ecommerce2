@@ -1,0 +1,69 @@
+{
+    "products":[
+        {
+            "id": 1,
+            "name": "Iphone 15 pro max",
+            "desc": "Iphone 15 Pro max 256 GB Purple Color",
+            "price": 450000,
+            "color": "Purple",
+            "image": "assets/images/15.jpg"
+        },
+        {
+            "id":2,
+            "name" : "Iphone 14 pro max",
+            "desc": "Iphone 14 pro max 128 GB White Color",
+        "price": 350000,
+        "color": "White",
+        "image": "assets/images/14promax.jpeg"
+        },
+        {
+            "id": 3,
+            "name": "Iphone 13 pro max",
+            "desc": "Iphone 13 pro max 128 GB Green Color",
+            "price": 250000,
+            "color": "Green",
+            "image": "assets/images/13promax.jpeg"
+        },
+        {
+            "id": 4,
+            "name": "Iphone 12 pro max",
+            "desc": "Iphone 12 pro max 256 GB Blue Color",
+            "price": 200000,
+            "color": "Blue",
+            "image": "assets/images/12promax.jpeg"
+        },
+        {
+            "id": 5,
+            "name": "Iphone 11 pro max",
+            "desc": "Iphone 11 pro max 128 GB Golden Color",
+            "price": 170000,
+            "color": "Golden",
+            "image": "assets/images/11promax.jpeg"
+        },
+        {
+            "id": 6,
+            "name": "Iphone XS Max",
+            "desc": "Iphone XS Max 256 GB Grey Color",
+            "price": 110000,
+            "color": "Grey",
+            "image": "assets/images/xsmax.jpeg"
+        },
+        {
+            "id": 7,
+            "name": "Iphone 8 Plus",
+            "desc": "Iphone 8 Plus 64 GB Black Color",
+            "price": 60000,
+            "color": "Black",
+            "image": "assets/images/8plus.jpg"
+        },
+        {
+            "id": 8,
+            "name": "Iphone 7 ",
+            "desc": "Iphone 7 32 GB Rose Gold Color",
+            "price": 20000,
+            "color": "Rose Gold",
+            "image": "assets/images/iphone7.jpeg"
+        }
+        
+    ]
+}

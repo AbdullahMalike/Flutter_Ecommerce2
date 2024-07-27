@@ -13,7 +13,7 @@ class CatalogModel {
         desc: "Iphone 7 32 GB Black Color",
         price: 50000,
         color: "Black",
-        image: "assets/images/8plus.jpg"),
+        image: "assets/images/iphone7.jpeg"),
   ];
 }
 

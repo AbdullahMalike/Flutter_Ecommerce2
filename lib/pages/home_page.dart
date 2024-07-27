@@ -8,7 +8,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dummy_list = List.generate(20, (index) => CatalogModel.items[0]);
+    final dummy_list = List.generate(20, (index) => CatalogModel.items[1]);
     return Scaffold(
       appBar: AppBar(
         title: const Text("Catalog App"),

@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:flutterpractise/models/catalog.dart';
 import 'package:flutterpractise/widgets/drawer.dart';
-import 'package:flutterpractise/widgets/item_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

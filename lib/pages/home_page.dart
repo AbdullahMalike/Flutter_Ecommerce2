@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'dart:convert';
 import 'package:flutterpractise/models/catalog.dart';
+import 'package:flutterpractise/widgets/drawer.dart';
 import 'package:flutterpractise/widgets/theme.dart';
 // import 'package:flutterpractise/widgets/drawer.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -41,74 +43,49 @@ class _HomePageState extends State<HomePage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MyTheme.creamcolor,
-      body: SafeArea(
-        child: Container(
-          padding: Vx.m32,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              CatalogHeader(),
-              if (CatalogModel.items != null && CatalogModel.items.isNotEmpty)
-                CatalogList().expand()
-              else
-                Center(child: CircularProgressIndicator())
-            ],
-          ),
+      appBar: AppBar(
+        title: const Text("Catalog App"),
+        centerTitle: true,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, crossAxisSpacing: 16, mainAxisSpacing: 16),
+          itemCount: CatalogModel.items.length,
+          itemBuilder: (context, int index) {
+            var items = CatalogModel.items[index];
+            return Card(
+              clipBehavior: Clip.antiAlias,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
+              child: GridTile(
+                child: Image.asset(items.image),
+                header: Container(
+                    padding: EdgeInsets.all(12),
+                    decoration: BoxDecoration(color: Colors.deepPurple),
+                    child: Text(
+                      items.name,
+                      style: TextStyle(color: Colors.white),
+                    )),
+                footer: Container(
+                    padding: EdgeInsets.all(12),
+                    decoration: BoxDecoration(color: Colors.black),
+                    child: Text(
+                      items.price.toString(),
+                      style: TextStyle(color: Colors.white),
+                    )),
+              ),
+            );
+          },
         ),
       ),
+      drawer: MyDrawer(),
     );
   }
 }
 
-class CatalogHeader extends StatelessWidget {
-  const CatalogHeader({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          "Catalog App".text.xl5.bold.color(MyTheme.darkbluish).make(),
-          "Trending Products".text.xl2.make()
-        ],
-      ),
-    );
-  }
-}
-
-class CatalogList extends StatelessWidget {
-  const CatalogList({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-        shrinkWrap: true,
-        itemCount: CatalogModel.items.length,
-        itemBuilder: (context, index) {
-          final catalog = CatalogModel.items[index];
-          return CatalogItem(
-            catalog: catalog,
-          );
-        });
-  }
-}
-
-class CatalogItem extends StatelessWidget {
-  Item catalog;
-  CatalogItem({super.key, required this.catalog});
-
-  @override
-  Widget build(BuildContext context) {
-    return VxBox(
-        child: Row(
-      children: [
-        Image.asset(catalog.image).box.rounded.p8.make().p16().w40(context)
-      ],
-    )).white.rounded.square(150).make().py16();
-  }
-}
 
 // code change kr rha velocity package use kro ga oper ab ui ke liye
 // Scaffold(

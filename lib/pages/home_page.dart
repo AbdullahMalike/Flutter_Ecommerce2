@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: MyTheme.creamcolor,
       body: SafeArea(
         child: Container(
-          padding: Vx.m32,
+          padding: Vx.m20,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

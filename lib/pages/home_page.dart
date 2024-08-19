@@ -1,10 +1,11 @@
-import 'package:flutter/foundation.dart';
+// import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'dart:convert';
 import 'package:flutterpractise/models/catalog.dart';
-import 'package:flutterpractise/widgets/drawer.dart';
+import 'package:flutterpractise/widgets/home_widgets/catalog_header.dart';
+import 'package:flutterpractise/widgets/home_widgets/catalog_list.dart';
+// import 'package:flutterpractise/widgets/drawer.dart';
 import 'package:flutterpractise/widgets/theme.dart';
 // import 'package:flutterpractise/widgets/drawer.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -54,11 +55,9 @@ class _HomePageState extends State<HomePage> {
               // esem header ka code nechy alag class me bna kr yaha call krlia
               CatalogHeader(),
               if (CatalogModel.items.isNotEmpty)
-                Cataloglist().expand()
+                Cataloglist().py16().expand()
               else
-                Center(
-                  child: CircularProgressIndicator(),
-                )
+                CircularProgressIndicator().centered().expand(),
             ],
           ),
         ),
@@ -67,99 +66,7 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class CatalogHeader extends StatelessWidget {
-  const CatalogHeader({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        "Catalog App".text.xl5.bold.color(MyTheme.darkbluish).make(),
-        "Trending Products".text.xl2.make()
-      ],
-    );
-  }
-}
-
-class Cataloglist extends StatelessWidget {
-  const Cataloglist({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-        shrinkWrap: true,
-        itemCount: CatalogModel.items.length,
-        itemBuilder: (context, index) {
-          var catalog = CatalogModel.items[index];
-          // esme hm ye kr rhy hai ke item ko catalog me save krwa kr CatalogItem class me dy rhy hai ye sirf data provide kr rha display CatalogItem class krwaen gi
-          return CatalogItem(
-            // hm jb nechy Item ka constructor bnaty hai yaha error aya ke esko nameed bnana ho ga
-            catalog: catalog,
-          );
-        });
-  }
-}
-
-class CatalogItem extends StatelessWidget {
-  final Item catalog;
-  // assert esme hmy debug me ye bta dy ga ke esme koi value null ho rhi hai
-  const CatalogItem({super.key, required this.catalog})
-      : assert(catalog != null);
-
-  @override
-  Widget build(BuildContext context) {
-    return VxBox(
-        child: Row(
-      children: [
-        CatalogImage(image: catalog.image),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              catalog.name.text.color(MyTheme.darkbluish).lg.bold.make().py2(),
-              catalog.desc.text.textStyle(context.captionStyle).make(),
-              10.heightBox,
-              ButtonBar(
-                alignment: MainAxisAlignment.spaceBetween,
-                buttonPadding: EdgeInsets.zero,
-                children: [
-                  "Pkr ${catalog.price}".text.xl.bold.make(),
-                  ElevatedButton(
-                      onPressed: () {},
-                      style: ButtonStyle(
-                          backgroundColor:
-                              WidgetStateProperty.all(MyTheme.darkbluish),
-                          shape:
-                              WidgetStateProperty.all(const StadiumBorder())),
-                      child: "Buy".text.make())
-                ],
-              ).pOnly(right: 8.0)
-            ],
-          ),
-        )
-      ],
-    )).white.rounded.square(150).make().py16();
-  }
-}
-
-class CatalogImage extends StatelessWidget {
-  // esme hm image ko string me rkh rhy hai or oska constructor bna rhy hai or oper catalog image ke parameter me pass kr rhy hai es image ko
-  final String image;
-  const CatalogImage({super.key, required this.image}) : assert(Image != null);
-
-  @override
-  Widget build(BuildContext context) {
-    return Image.asset(image)
-        .box
-        .color(MyTheme.creamcolor)
-        .rounded
-        .make()
-        .p12()
-        .w32(context);
-  }
-}
 // code change kr rha velocity package use kro ga oper ab ui ke liye
 // Scaffold(
 //       appBar: AppBar(

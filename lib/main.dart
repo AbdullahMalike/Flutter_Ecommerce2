@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterpractise/pages/home_detailed_page.dart';
 import 'package:flutterpractise/pages/home_page.dart';
 import 'package:flutterpractise/pages/loginpage.dart';
 import 'package:flutterpractise/pages/signup.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         MyRoutes.homeRoute: (context) => HomePage(),
         MyRoutes.loginRoute: (context) => LoginPage(),
         MyRoutes.signup: (context) => SignUp(),
+        // MyRoutes.homedetailRoute: (context) => HomeDetail()
       },
     );
   }
